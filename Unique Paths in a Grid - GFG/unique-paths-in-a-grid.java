@@ -36,7 +36,7 @@ class GFG {
 class Solution {
     static int uniquePaths(int n, int m, int[][] grid) {
         // code here
-         int mod = ((int)Math.pow(10,9))+7;
+        int mod = ((int)Math.pow(10,9))+7;
         if(grid[0][0] == 0) return 0;
         long[][] dp = new long[n][m];
         dp[0][0] = 1;
