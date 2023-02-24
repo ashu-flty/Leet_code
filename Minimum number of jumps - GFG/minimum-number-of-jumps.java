@@ -27,39 +27,35 @@ class GFG
 
 
 class Solution{
-    static int minJumps(int[] arr){
-        // your code here
-        int n = arr.length;
-       
-       if(n==1){      // size 1 no jumps
-           return 0;
-       }
-       
-       if(arr[0]==0){   // first step is zero no jump 
-           return -1; 
-       } 
-       int jumps = 1;
-       int  maxrange = arr[0];
-       int steps = arr[0];
-       
-       for(int i=1;i<n;i++){
-           
-           // reached to the end
-           if(i==n-1) return jumps;
-           
-           maxrange =Math.max(maxrange,i+arr[i]);
-           steps--;
-           
-           // if no steps left
-           
-           if(steps==0){
-               
-               if(i>= maxrange) return -1;
-               
-               jumps++;
-               steps = maxrange -i;
-           }
-       }
-       return -1;
+     static int minJumps(int[] arr){
+
+        int jumps =0,curEnd=0,curFar=0;
+
+        for(int i=0;i<=curFar;i++){
+
+            curFar = Math.max(curFar,i+arr[i]);
+
+            if(curFar >= arr.length-1){
+
+                jumps++;
+
+                return jumps;
+
+            }
+
+            if (i == curEnd) {
+
+     jumps++;
+
+     curEnd = curFar;
+
+     }
+
+        }
+
+        return -1;
+
+ 
+
     }
 }
