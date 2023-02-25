@@ -34,11 +34,31 @@ class GFG {
 //User function Template for Java
 
 class Solution{
-    public static int kthSmallest(int[] arr, int l, int r, int k) 
-    { 
-        //Your code here
-          Arrays.sort(arr);
 
-        return arr[k-1];
+    public static int kthSmallest(int[] arr, int l, int r, int k) 
+
+    { 
+
+        //Collection.reversOrder is use for insert in queue from smallest element
+
+// priority queue is for insert element in sorted 
+
+        PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+
+        for(int i=0; i<=arr.length-1;i++)
+
+        {
+
+            pq.add(arr[i]);
+
+            if(pq.size()>k)
+
+            pq.remove();
+
+        }
+
+        return pq.peek();
+
     } 
+
 }
