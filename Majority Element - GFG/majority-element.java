@@ -34,58 +34,29 @@ class Solution
     static int majorityElement(int a[], int size)
     {
         // your code here
-        if(size == 1) {
-
-            return a[0];
-
-        }
-
-        int res = 0, count = 1;
-
-        for(int i = 1; i<size; i++) {
-
-            if(a[res] == a[i]) {
-
-                count++;
-
-            }else {
-
-                count--;
-
-            }
-
-            if(count == 0) {
-
-                res = i;
-
-                count = 1;
-
-            }
-
-        }
-
-        count = 0;
-
-        for(int i = 0; i<size; i++) {
-
-            if(a[res] == a[i]) {
-
-                count++;
-
-            }
-
-        }
-
-        if(count<=size/2) {
-
-            return res = -1;
-
-        }
-
+        int c =0;
+        int prev=0;
         
-
-        return a[res];
-
-
+        
+        
+        for(int i=0;i<size;i++){
+            if(c==0){
+                prev=a[i];
+            }
+            if(prev==a[i]){
+                c++;
+                
+            }else{
+                c--;
+            }
+        }
+        
+       int count=0;
+       for(int i=0;i<size;i++){
+           if(a[i]==prev)count++;
+       }
+        
+        if(count>size/2)return prev;
+        return -1;
     }
 }
