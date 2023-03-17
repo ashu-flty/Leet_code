@@ -22,10 +22,7 @@ class GFG{
 }
 // } Driver Code Ends
 
-
-//User function Template for Java
-
-class Solution{
+ class Solution{
 	long no_of_subarrays(int N, int [] arr) {
 		
 		long ans=0;
